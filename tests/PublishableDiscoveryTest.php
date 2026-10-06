@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher\Tests;
+namespace Letkode\ConfigPublisherBundle\Tests;
 
-use Letkode\ConfigPublisher\Exception\InvalidPublishDefinition;
-use Letkode\ConfigPublisher\Publishable;
-use Letkode\ConfigPublisher\PublishableDiscovery;
+use Letkode\ConfigPublisherBundle\Exception\InvalidPublishDefinition;
+use Letkode\ConfigPublisherBundle\Publishable;
+use Letkode\ConfigPublisherBundle\PublishableDiscovery;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

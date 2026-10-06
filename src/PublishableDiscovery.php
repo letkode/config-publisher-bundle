@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher;
+namespace Letkode\ConfigPublisherBundle;
 
-use Letkode\ConfigPublisher\Exception\InvalidPublishDefinition;
+use Letkode\ConfigPublisherBundle\Exception\InvalidPublishDefinition;
 
 /**
  * Reads `extra.letkode.publish` ({destination: source}) from the composer.json of every installed package.
@@ -16,6 +16,11 @@ final readonly class PublishableDiscovery
      */
     public function __construct(private array $packages)
     {
+    }
+
+    public static function fromComposer(): self
+    {
+        return new self(InstalledPackages::fromComposer());
     }
 
     /**

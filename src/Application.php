@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher;
+namespace Letkode\ConfigPublisherBundle;
 
-use Letkode\ConfigPublisher\Command\PublishCommand;
+use Letkode\ConfigPublisherBundle\Command\PublishCommand;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputDefinition;

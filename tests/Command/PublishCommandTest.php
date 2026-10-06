@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher\Tests\Command;
+namespace Letkode\ConfigPublisherBundle\Tests\Command;
 
-use Letkode\ConfigPublisher\Command\PublishCommand;
-use Letkode\ConfigPublisher\PublishableDiscovery;
-use Letkode\ConfigPublisher\Publisher;
-use Letkode\ConfigPublisher\Tests\FixtureTrait;
+use Letkode\ConfigPublisherBundle\Command\PublishCommand;
+use Letkode\ConfigPublisherBundle\PublishableDiscovery;
+use Letkode\ConfigPublisherBundle\Publisher;
+use Letkode\ConfigPublisherBundle\Tests\FixtureTrait;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;

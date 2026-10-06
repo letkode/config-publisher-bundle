@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher\Tests;
+namespace Letkode\ConfigPublisherBundle\Tests;
 
 use Symfony\Component\Filesystem\Filesystem;
 

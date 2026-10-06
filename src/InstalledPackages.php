@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher;
+namespace Letkode\ConfigPublisherBundle;
 
 use Composer\InstalledVersions;
 

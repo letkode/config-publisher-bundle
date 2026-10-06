@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher\Command;
+namespace Letkode\ConfigPublisherBundle\Command;
 
-use Letkode\ConfigPublisher\Publishable;
-use Letkode\ConfigPublisher\PublishableDiscovery;
-use Letkode\ConfigPublisher\Publisher;
-use Letkode\ConfigPublisher\PublishResult;
+use Letkode\ConfigPublisherBundle\Publishable;
+use Letkode\ConfigPublisherBundle\PublishableDiscovery;
+use Letkode\ConfigPublisherBundle\Publisher;
+use Letkode\ConfigPublisherBundle\PublishResult;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -20,7 +20,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 #[AsCommand(name: self::NAME, description: 'Copies the example config files of installed letkode/* packages into the project')]
 final class PublishCommand extends Command
 {
-    public const string NAME = 'publish';
+    public const string NAME = 'letkode:config:publish';
 
     public function __construct(
         private readonly PublishableDiscovery $discovery,

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher\Exception;
+namespace Letkode\ConfigPublisherBundle\Exception;
 
 final class InvalidPublishDefinition extends \RuntimeException
 {

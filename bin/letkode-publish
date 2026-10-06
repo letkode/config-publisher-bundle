@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-use Letkode\ConfigPublisher\Application;
-use Letkode\ConfigPublisher\Command\PublishCommand;
-use Letkode\ConfigPublisher\InstalledPackages;
-use Letkode\ConfigPublisher\PublishableDiscovery;
-use Letkode\ConfigPublisher\Publisher;
+use Letkode\ConfigPublisherBundle\Application;
+use Letkode\ConfigPublisherBundle\Command\PublishCommand;
+use Letkode\ConfigPublisherBundle\InstalledPackages;
+use Letkode\ConfigPublisherBundle\PublishableDiscovery;
+use Letkode\ConfigPublisherBundle\Publisher;
 
 $autoloadCandidates = [
     $GLOBALS['_composer_autoload_path'] ?? null,

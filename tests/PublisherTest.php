@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Letkode\ConfigPublisher\Tests;
+namespace Letkode\ConfigPublisherBundle\Tests;
 
-use Letkode\ConfigPublisher\Publishable;
-use Letkode\ConfigPublisher\Publisher;
-use Letkode\ConfigPublisher\PublishResult;
+use Letkode\ConfigPublisherBundle\Publishable;
+use Letkode\ConfigPublisherBundle\Publisher;
+use Letkode\ConfigPublisherBundle\PublishResult;
 use PHPUnit\Framework\TestCase;
 
 final class PublisherTest extends TestCase

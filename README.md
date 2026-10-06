@@ -1,6 +1,6 @@
-# letkode/config-publisher
+# letkode/config-publisher-bundle
 
-Copies the example config files that `letkode/*` packages ship into your project, with one command. Think `vendor:publish` from Laravel.
+Copies the example config files that `letkode/*` packages ship into your project, with one command: `bin/console letkode:config:publish`. Think `vendor:publish` from Laravel.
 
 The `letkode/*` bundles work with their defaults and need no files. When you want to change a value, publish the commented example, edit it, done.
 
@@ -8,10 +8,19 @@ The `letkode/*` bundles work with their defaults and need no files. When you wan
 
 ## Installation
 
-You normally don't install it: every `letkode/*` bundle that has a config file requires it. To use it on its own:
+You normally don't install it: every `letkode/*` bundle that has a config file requires it, and Symfony Flex registers it in `config/bundles.php`. To use it on its own:
 
 ```bash
-composer require letkode/config-publisher
+composer require letkode/config-publisher-bundle
+```
+
+If not using Flex, add it manually:
+
+```php
+// config/bundles.php
+return [
+    Letkode\ConfigPublisherBundle\LetkodeConfigPublisherBundle::class => ['all' => true],
+];
 ```
 
 ---
@@ -19,12 +28,14 @@ composer require letkode/config-publisher
 ## Usage
 
 ```bash
-vendor/bin/letkode-publish locale                    # one package
-vendor/bin/letkode-publish locale http-exception     # several
-vendor/bin/letkode-publish letkode/locale-bundle     # full package name works too
-vendor/bin/letkode-publish --all                     # every installed package that offers files
-vendor/bin/letkode-publish                           # lists the available ones and asks
+bin/console letkode:config:publish locale                    # one package
+bin/console letkode:config:publish locale http-exception     # several
+bin/console letkode:config:publish letkode/locale-bundle     # full package name works too
+bin/console letkode:config:publish --all                     # every installed package that offers files
+bin/console letkode:config:publish                           # lists the available ones and asks
 ```
+
+The same command is also available without booting the kernel, for projects that are not Symfony apps or when the bundle is not registered: `vendor/bin/letkode-publish locale`.
 
 The short name is the package name without the vendor and the `-bundle` suffix.
 
@@ -54,7 +65,7 @@ Declare `{destination: source}` in the package's `composer.json`. The destinatio
 }
 ```
 
-That is the only contract: the package needs no code from this one, only the `require` so the executable lands in the project's `vendor/bin`.
+That is the only contract: the package needs no code from this one, only the `require` so the command is installed with it.
 
 A destination must be a relative path inside the project (no `..`, no leading `/`) and a source must be a file inside the package, otherwise the command stops with an error naming the package.
 
