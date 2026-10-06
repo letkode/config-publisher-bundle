@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Letkode\ConfigPublisher\Application;
+use Letkode\ConfigPublisher\Command\PublishCommand;
+use Letkode\ConfigPublisher\InstalledPackages;
+use Letkode\ConfigPublisher\PublishableDiscovery;
+use Letkode\ConfigPublisher\Publisher;
+
+$autoloadCandidates = [
+    $GLOBALS['_composer_autoload_path'] ?? null,
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+];
+
+foreach ($autoloadCandidates as $autoload) {
+    if (\is_string($autoload) && is_file($autoload)) {
+        require $autoload;
+
+        break;
+    }
+}
+
+if (!class_exists(Application::class)) {
+    fwrite(\STDERR, "Cannot find Composer's autoloader. Run `composer install` first.\n");
+
+    exit(1);
+}
+
+$command = new PublishCommand(
+    new PublishableDiscovery(InstalledPackages::fromComposer()),
+    new Publisher(InstalledPackages::projectDir()),
+);
+
+exit(new Application($command)->run());
